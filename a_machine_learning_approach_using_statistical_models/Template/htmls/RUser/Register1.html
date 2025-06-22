@@ -1,0 +1,190 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Register Your Details</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style type="text/css">
+        .style1 {
+            color: #010101;
+            font-weight: bold;
+        }
+    </style>
+    
+    <style>
+        body {
+            background: url("{% static 'bga.jpg' %}");
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container-fluid {
+            padding: 50px;
+        }
+
+        .container {
+            background-color: rgba(254, 254, 254, 0.795);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+            padding: 10px;
+            width: 100%;
+            max-width: 700px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(117, 186, 211, 0.1);
+        }
+
+        #title {
+            font-family: 'Times New Roman', cursive;
+        }
+
+        .text-uppercase {
+            font-family: 'Righteous', cursive;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+			
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .form-check {
+            text-align: center;
+        }
+
+        .style1 {
+            font-weight: bold;
+            color: #010101;
+        }
+
+        .style4 {
+            color: #FF00FF;
+            font-weight: bold;
+        }
+
+        .style5 {
+            font-family: 'Righteous', cursive;
+            color: #111111;
+            font-weight: bold;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Ensures buttons are stacked vertically */
+            align-items: center;    /* Centers buttons horizontally */
+            gap: 15px;              /* Adds spacing between buttons */
+        }
+
+        .btn-lg {
+            width: 100%;
+            padding: 12px;
+            background-color: #0254d0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-lg a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-lg:hover {
+            background-color: #006cdf;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2 class="style1" id="title"><strong>A Machine Learning Approach Using Statistical Models for Early Detection of Cardiac Arrest in Newborn Babies in the Cardiac Intensive Care Unit</strong></h2>
+            <p><span class="style4"><small id="passwordHelpInline" class="text-muted">Cardiac arrest, newborn, early detection, intensive care unit, statistical modeling.</small></span></p>
+            <hr>
+
+            <div class="container">
+                <form method="POST" role="form">
+                    {% csrf_token %}
+                    <fieldset>
+                        <p class="style5">Register Your Details:</p>
+
+                        <div class="form-group">
+                            <input type="text" name="username" id="username" placeholder="User Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" placeholder="Password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" name="phoneno" id="phoneno" placeholder="Mobile Number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="country" id="country" placeholder="Country" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="state" id="state" placeholder="State" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="city" id="city" placeholder="City" required>
+                        </div>
+
+                        <div>
+                            <input type="submit" class="btn btn-lg btn-primary" name="submit" value="Sign Up">
+                        </div>
+
+                    </fieldset>
+
+                    <br>
+                    <div class="button-container">
+                        <button class="btn btn-lg">
+                            <a href="{% url 'login' %}">User Login</a>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

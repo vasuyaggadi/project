@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote User</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F7F9FC;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5em;
+           
+        }
+
+        /* Top Navigation Bar */
+        .topnav {
+            display: flex;
+            justify-content: center;
+            background-color: #47676f;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .topnav a {
+            color: #fff;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .topnav a:hover {
+            background-color: #f7fbfc;
+            color: #0e0e0e;
+        }
+
+        .topnav a.active {
+            background-color: #32CD32;
+            color: white;
+        }
+
+        /* Main Content Area */
+        .mainholder {
+            width: 90%;
+            margin: 40px auto;
+            max-width: 1200px;
+            background-color: #1f3a6600;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .mainholder h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            background: linear-gradient(to right, #3287cd, #f9f9fb);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .mainholder p {
+            font-size: 1.1em;
+            color: #ffffff;
+            line-height: 1.8;
+        }
+
+        /* Button Style */
+        .btn {
+            background: linear-gradient(to right, #FF7F50, #FF6347);
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            border-radius: 30px;
+            font-size: 1.2em;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #FFD700, #32CD32);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .topnav a {
+                font-size: 14px;
+                padding: 12px 25px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .mainholder {
+                padding: 20px;
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .topnav a {
+                font-size: 13px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>A Machine Learning Approach Using Statistical Models for Early Detection of Cardiac Arrest in Newborn Babies in the Cardiac Intensive Care Unit</h1>
+
+    <!-- Navigation Bar -->
+    <div class="topnav">
+        <a href="{% url 'Predict_Cardiac_Arrest_Type' %}">PREDICT DETECTION OF CARDIAC ARREST</a>
+        <a href="{% url 'ViewYourProfile' %}">VIEW YOUR PROFILE</a>
+        <a href="{% url 'login' %}">LOGOUT</a>
+    </div>
+
+    <!-- Main Content Area -->
+     <center>
+    <div class="mainholder">
+        {% block userblock %}
+        {% endblock %}
+    </div></center>
+
+</body>
+</html>

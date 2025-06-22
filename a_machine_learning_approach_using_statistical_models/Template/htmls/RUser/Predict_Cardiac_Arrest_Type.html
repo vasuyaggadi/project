@@ -1,0 +1,248 @@
+{% extends 'RUser/design.html' %}
+{% load static %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+<style>
+    body {
+        background: url("{% static 'bga.jpg' %}");
+       
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        color: white;
+    }
+
+    .container-fluid {
+        padding: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #1f3a66;
+    }
+
+    .container {
+        background-color:  #7d839453; /* Darker shade of blue-gray */
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 1000px;
+    } 
+
+
+
+    #title {
+        font-family: 'Fredoka One', cursive;
+        font-size: 2.5em;
+        color: #f39c12; /* Golden yellow color for title */
+        text-align: center;
+    }
+
+    .text-uppercase {
+        font-family: 'Righteous', cursive;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: white; /* White color for section title */
+    }
+
+    .style1 {
+        color: #5aaee9; /* Red color for important text */
+        font-weight: bold;
+    }
+
+    .style4 {
+        color: #f39c12; /* Golden yellow color for labels */
+        font-weight: bold;
+    }
+
+    .style6 {
+        font-size: 24px;
+        color: #f39c12;
+        font-weight: bold;
+    }
+
+    .style8 {
+        font-style: italic;
+        color: #f39c12;
+        font-weight: bold;
+    }
+
+    .style11 {
+        color: #FFFFFF;
+    }
+
+    .tweettext {
+        border: 2px solid #f39c12;
+        width: 100%;
+        height: 202px;
+        overflow: scroll;
+        background-color: #34495e; /* Match the background color */
+        color: white;
+    }
+
+    table {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    input[type="text"], select {
+        width: 90%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ffffff;
+        background-color: #2c3e50; /* Dark background for inputs */
+        color: white;
+        
+    }
+
+    input[type="submit"] {
+        background-color: #50555e; /* Red background for submit button */
+        color: white;
+        
+        
+        padding: 12px 30px;
+        font-size: 1.2em;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #f39c12; 
+        /* Golden yellow on hover */
+    }
+
+    /* Centered Prediction Result */
+    .prediction-result {
+        text-align: center;
+        font-size: 20px;
+        color: #f39c12; /* Golden yellow */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            padding: 20px;
+            width: 80%;
+        }
+
+        #title {
+            font-size: 2em;
+        }
+
+        .text-uppercase {
+            font-size: 1.3em;
+        }
+    }
+</style>
+
+<body>
+    
+       <div class="container"> 
+            <div class="row">
+                <div class="col-md-5">
+
+                    <!-- Prediction Form -->
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <p class="text-uppercase style1">PREDICTION OF CARDIAC ARREST TYPE</p>
+                            <hr>
+
+                            <table>
+                                <tr>
+                                    <td colspan="4"class="style8" align="center">ENTER ALL DETAILS FROM HEALTHCARE DATA SETS</td>
+                                </tr>
+                                <tr>
+                                    <td  class="style4" align="left">ENTER Fid</td>
+                                    <td><input type="text" name="Fid"></td>
+                                    <td  class="style4" align="left">ENTER Age In Days</td>
+                                    <td><input type="text" name="Age_In_Days"></td>
+                                </tr>
+                                <tr>
+                                    <td  class="style4" align="left">ENTER Sex</td>
+                                    <td><select name="Sex">
+                                        <option>--- Select ---</option>
+                                        <option>M</option>
+                                        <option>F</option>
+                                    </select></td>
+                                    <td class="style4" align="left">ENTER Chest Pain Type</td>
+                                    <td><input type="text" name="ChestPainType"></td>
+                                </tr>
+                                <tr>
+                                    <td  class="style4" align="left">ENTER Resting BP</td>
+                                    <td><input type="text" name="RestingBP"></td>
+                                    <td  class="style4" align="left">ENTER Resting ECG</td>
+                                    <td><input type="text" name="RestingECG"></td>
+                                </tr>
+                                <tr>
+                                    <td  class="style4" align="left">ENTER MaxHR</td>
+                                    <td><input type="text" name="MaxHR"></td>
+                                    <td  class="style4" align="left">ENTER Exercise Angina</td>
+                                    <td><input type="text" name="ExerciseAngina"></td>
+                                </tr>
+                                <tr>
+                                    <td  class="style4" align="left">ENTER Oldpeak</td>
+                                    <td><input type="text" name="Oldpeak"></td>
+                                    <td  class="style4" align="leftr">ENTER ST Slope</td>
+                                    <td><input type="text" name="ST_Slope"></td>
+                                </tr>
+                                <tr>
+                                    <td class="style4" align="left">ENTER Slp</td>
+                                    <td><input type="text" name="slp"></td>
+                                    <td class="style4" align="left">ENTER Caa</td>
+                                    <td><input type="text" name="caa"></td>
+                                </tr>
+                                <tr>
+                                    <td class="style4" align="left">ENTER Thall</td>
+                                    <td><input type="text" name="thall"></td>
+                                    <td></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td ><input type="submit"  value="Predict"></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+
+                    <!-- Prediction Result -->
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <hr>
+                            <div>
+                                <table align="center">
+                                    <tr>
+                                        <td  class="style6" align="center">Prediction of Cardiac Arrest Type</td>
+                                        <td  class="prediction-result" align="center">{{objs}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+
+                <div class="col-md-2">
+                    <!-- Empty Column for spacing -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

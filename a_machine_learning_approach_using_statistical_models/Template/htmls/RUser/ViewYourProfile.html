@@ -1,0 +1,177 @@
+{% extends 'RUser/design.html' %}
+{% load static %}
+
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+<style>
+    /* Global Styles */
+    body { background: url("{% static 'bga.jpg' %}");
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+       /* background-color: #1f3a66;  Dark blue background for the whole page */
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Fluid Container */
+    .container-fluid {
+        padding: 10px;
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100vh; /* Full screen height */
+        background: #1f3a66; /* Dark blue background */
+    }
+
+    /* Inner Container */
+    .container {
+        background-color: #7d839453; /* Lighter shade of blue */
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Soft shadow */
+        width: 60%; /* Adjust width */
+        max-width: 800px; /* Limit max width */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    }
+
+    .container:hover {
+        transform: scale(1.02); /* Slight scaling on hover */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    }
+
+    #title {
+        font-family: 'Fredoka One', cursive;
+        font-size: 2.5em;
+        color: #f39c12; /* Golden yellow for contrast */
+        text-align: center;
+    }
+
+    /* Change color of "YOUR PROFILE DETAILS" to white */
+    .text-uppercase {
+        font-family: 'Righteous', cursive;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: white; /* White color for the title */
+    }
+
+    .style1 {
+        color: #f39c12; /* Golden yellow for highlighted text */
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    .form-group p {
+        font-size: 1.2em;
+        color: #ecf0f1; /* Light color for text */
+    }
+
+    .form-group span.style1 {
+        font-size: 1.3em;
+        color: #f39c12; /* Golden yellow for important text */
+    }
+
+    /* Button Style */
+    .btn {
+        background: #3498db; /* Blue button color */
+        color: white;
+        padding: 12px 30px;
+        text-align: center;
+        font-size: 1.2em;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+        background: #2980b9; /* Slightly darker blue on hover */
+        color: white;
+    }
+
+    /* View Profile Link Style */
+    .view-profile-link {
+        color: white; /* Change "View Profile" text to white */
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: color 0.3s ease;
+    }
+
+    .view-profile-link:hover {
+        color: #f39c12; /* Change color on hover to golden yellow */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            padding: 20px;
+            width: 80%;
+        }
+
+        #title {
+            font-size: 2em;
+        }
+
+        .text-uppercase {
+            font-size: 1.3em;
+        }
+    }
+</style>
+
+<body>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <p class="text-uppercase style1">YOUR PROFILE DETAILS</p>
+                            <hr>
+                            <div class="form-group">
+                                <p><span class="style1">USER NAME</span> = {{object.username}}</p>
+                            </div>
+
+                            <div class="form-group">
+                                <p><span class="style1">EMAIL</span> = {{object.email}}</p>
+                            </div>
+
+                            <div class="form-group">
+                                <p><span class="style1">PASSWORD</span> = {{object.password}}</p>
+                            </div>
+
+                            <div class="form-group">
+                                <p><span class="style1">MOBILE NO</span> = {{object.phoneno}}</p>
+                            </div>
+
+                            <div class="form-group">
+                                <p><span class="style1">COUNTRY</span> = {{object.country}}</p>
+                            </div>
+
+                            <div class="form-group">
+                                <p><span class="style1">STATE</span> = {{object.state}}</p>
+                            </div>
+
+                            <div class="form-group">
+                                <p><span class="style1">CITY</span> = {{object.city}}</p>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="#" class="view-profile-link">View Profile</a>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
